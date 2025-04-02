@@ -20,3 +20,11 @@ elif choice == "2":
 else:
     activity = "Sports Leadership Training"
     cost = 12
+   # Get meal choice
+print("\nMeal options:")
+print("1. Standard")
+print("2. Vegetarian")
+print("3. Dairy-free")
+print("4. No meal")
+meal = input("Enter meal number (1-4): ")
+ 
