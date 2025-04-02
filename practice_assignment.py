@@ -17,3 +17,6 @@ if choice == "1":
 elif choice == "2":
     activity = "Science Experiments Lab"
     cost = 10
+else:
+    activity = "Sports Leadership Training"
+    cost = 12
