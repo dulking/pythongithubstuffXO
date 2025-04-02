@@ -10,3 +10,7 @@ print("2. Science Experiments Lab (3 hours, moderate, $10)")
 print("3. Sports Leadership Training (4 hours, challenging, $12)")
 # Get activity choice
 choice = input("Enter activity number (1-3): ")
+# Set activity details
+if choice == "1":
+    activity = "Music Jam Session"
+    cost = 5
