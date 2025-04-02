@@ -27,4 +27,6 @@ print("2. Vegetarian")
 print("3. Dairy-free")
 print("4. No meal")
 meal = input("Enter meal number (1-4): ")
- 
+ # Set meal details
+if meal == "1":
+    meal_type = "standard"
