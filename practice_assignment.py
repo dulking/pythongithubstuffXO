@@ -32,3 +32,5 @@ if meal == "1":
     meal_type = "standard"
 elif meal == "2":
     meal_type = "vegetarian"
+elif meal == "3":
+    meal_type = "dairy-free"
