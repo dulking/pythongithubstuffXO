@@ -14,3 +14,6 @@ choice = input("Enter activity number (1-3): ")
 if choice == "1":
     activity = "Music Jam Session"
     cost = 5
+elif choice == "2":
+    activity = "Science Experiments Lab"
+    cost = 10
