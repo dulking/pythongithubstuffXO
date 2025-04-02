@@ -38,3 +38,10 @@ else:
     meal_type = "no meal"
 # Show summary
 print(f"\n{name}, age {age}, chose {activity}, meal: {meal_type}. Total: ${cost}")
+
+# Get confirmation
+confirm = input("Are you attending? (yes/no): ")
+if confirm.lower() == "yes":
+    print(f"\n{name} is confirmed for {activity}. See you there!")
+else:
+    print("\nRegistration cancelled.")
