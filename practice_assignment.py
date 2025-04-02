@@ -36,3 +36,5 @@ elif meal == "3":
     meal_type = "dairy-free"
 else:
     meal_type = "no meal"
+# Show summary
+print(f"\n{name}, age {age}, chose {activity}, meal: {meal_type}. Total: ${cost}")
