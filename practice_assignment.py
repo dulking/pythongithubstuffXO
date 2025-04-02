@@ -30,3 +30,5 @@ meal = input("Enter meal number (1-4): ")
  # Set meal details
 if meal == "1":
     meal_type = "standard"
+elif meal == "2":
+    meal_type = "vegetarian"
