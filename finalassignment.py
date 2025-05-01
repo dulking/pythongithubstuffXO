@@ -13,4 +13,12 @@ CAMPS = {
         "days": 5,
         "difficulty": "easy",
         "base_cost": 800
+    },
+    "2": {
+        "name": "Kayaking and pancakes",
+        "days": 3,
+        "difficulty": "moderate",
+        "base_cost": 400
+    },
+
 
