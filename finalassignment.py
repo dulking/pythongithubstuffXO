@@ -31,4 +31,8 @@ CAMPS = {
 MEALS = {
     "1": {"name": "No meals", "cost": 0},
     "2": {"name": "Lunch only", "cost": 50},
+    "3": {"name": "Full board (breakfast, lunch, dinner)", "cost": 100}
+}
+
+
 
