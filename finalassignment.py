@@ -33,6 +33,10 @@ MEALS = {
     "2": {"name": "Lunch only", "cost": 50},
     "3": {"name": "Full board (breakfast, lunch, dinner)", "cost": 100}
 }
+def get_valid_input(prompt, input_type=str, valid_options=None):
+    """
+    Helper function to get valid input from user with error handling
+    
 
 
 
