@@ -20,5 +20,11 @@ CAMPS = {
         "difficulty": "moderate",
         "base_cost": 400
     },
-
+    "3": {
+        "name": "Mountain biking",
+        "days": 4,
+        "difficulty": "difficult",
+        "base_cost": 900
+    }
+}
 
