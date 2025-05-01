@@ -27,4 +27,8 @@ CAMPS = {
         "base_cost": 900
     }
 }
+# Meal options and costs
+MEALS = {
+    "1": {"name": "No meals", "cost": 0},
+    "2": {"name": "Lunch only", "cost": 50},
 
