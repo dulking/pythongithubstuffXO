@@ -33,10 +33,21 @@ MEALS = {
     "2": {"name": "Lunch only", "cost": 50},
     "3": {"name": "Full board (breakfast, lunch, dinner)", "cost": 100}
 }
-def get_valid_input(prompt, input_type=str, valid_options=None):
+def get_valid_input(prompt, input_type=str, valid_options=None, min_value=None, max_value=None):
     """
     Helper function to get valid input from user with error handling
+    Parameters:
+        prompt (str): The message to display to the user
+        input_type (type): The expected type of input (str, int, etc.)
+        valid_options (list/dict): Optional list of valid choices
+        min_value: Minimum allowed value (for numeric inputs)
+        max_value: Maximum allowed value (for numeric inputs)
     
+    Returns:
+        The validated user input
+    """
+    
+  
 
 
 
