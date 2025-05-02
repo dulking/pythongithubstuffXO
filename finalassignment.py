@@ -51,7 +51,8 @@ def get_valid_input(prompt, input_type=str, valid_options=None, min_value=None, 
             user_input = input(prompt).strip()
             if not user_input:
                 raise ValueError("Input cannot be empty")
-  
-
+           # Convert to correct type
+            if input_type == int:
+                user_input = int(user_input)
 
 
