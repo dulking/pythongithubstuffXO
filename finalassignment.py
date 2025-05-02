@@ -47,12 +47,18 @@ def get_valid_input(prompt, input_type=str, valid_options=None, min_value=None, 
         The validated user input
     """
     while True:
-        try:
+        try: 
             user_input = input(prompt).strip()
             if not user_input:
                 raise ValueError("Input cannot be empty")
            # Convert to correct type
             if input_type == int:
                 user_input = int(user_input)
-
+         # Check min/max values if provided
+                if min_value is not None and user_input < min_value:
+                    raise ValueError(f"Value must be at least {min_value}")
+                if max_value is not None and user_input > max_value:
+                    raise ValueError(f"Value must be at most {max_value}")
+            elif input_type == float:
+                user_input = float(user_input)
 
