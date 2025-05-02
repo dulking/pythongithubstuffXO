@@ -46,7 +46,11 @@ def get_valid_input(prompt, input_type=str, valid_options=None, min_value=None, 
     Returns:
         The validated user input
     """
-    
+    while True:
+        try:
+            user_input = input(prompt).strip()
+            if not user_input:
+                raise ValueError("Input cannot be empty")
   
 
 
