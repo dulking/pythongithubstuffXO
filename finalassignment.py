@@ -1,64 +1,74 @@
 """
-#School Holiday Camp Registration Program
- # Author: [Your Name]
- # Date: [Current Date]
+School Holiday Camp Registration Program
+Author: [Your Name]
+Date: [Current Date]
 
-This program allows campers to register for various holiday camp options,
-select their preferences, and receive a cost summary and confirmation.
+This program manages registrations for a school holiday camp with:
+- Multiple camp options
+- Meal plan choices
+- Transportation option
+- Registration data storage
 """
-# Constants for camp options
-CAMPS = {
-    "1": {
+
+# Camp data stored in a list of dictionaries
+CAMPS = [
+    {
+        "code": "1",
         "name": "Cultural immersion",
-        "days": 5,
+        "duration": 5,
         "difficulty": "easy",
         "base_cost": 800
     },
-    "2": {
+    {
+        "code": "2",
         "name": "Kayaking and pancakes",
-        "days": 3,
+        "duration": 3,
         "difficulty": "moderate",
         "base_cost": 400
     },
-    "3": {
+    {
+        "code": "3",
         "name": "Mountain biking",
-        "days": 4,
+        "duration": 4,
         "difficulty": "difficult",
         "base_cost": 900
     }
-}
-# Meal options and costs
-MEALS = {
-    "1": {"name": "No meals", "cost": 0},
-    "2": {"name": "Lunch only", "cost": 50},
-    "3": {"name": "Full board (breakfast, lunch, dinner)", "cost": 100}
-}
-def get_valid_input(prompt, input_type=str, valid_options=None, min_value=None, max_value=None):
+]
+
+# Meal options stored in a list of dictionaries
+MEAL_PLANS = [
+    {
+        "code": "1",
+        "description": "No meals",
+        "daily_cost": 0
+    },
+    {
+        "code": "2",
+        "description": "Lunch only",
+        "daily_cost": 50
+    },
+    {
+        "code": "3",
+        "description": "Full board (breakfast, lunch, dinner)",
+        "daily_cost": 100
+    }
+]
+
+# Transportation cost constant
+TRANSPORT_COST = 80
+
+# List to store all registrations
+all_registrations = []
+
+def display_options(options, title):
     """
-    Helper function to get valid input from user with error handling
-    Parameters:
-        prompt (str): The message to display to the user
-        input_type (type): The expected type of input (str, int, etc.)
-        valid_options (list/dict): Optional list of valid choices
-        min_value: Minimum allowed value (for numeric inputs)
-        max_value: Maximum allowed value (for numeric inputs)
+    Display available options with a title
     
-    Returns:
-        The validated user input
+    Args:
+        options (list): List of option dictionaries
+        title (str): Display title for the options
     """
-    while True:
-        try: 
-            user_input = input(prompt).strip()
-            if not user_input:
-                raise ValueError("Input cannot be empty")
-           # Convert to correct type
-            if input_type == int:
-                user_input = int(user_input)
-         # Check min/max values if provided
-                if min_value is not None and user_input < min_value:
-                    raise ValueError(f"Value must be at least {min_value}")
-                if max_value is not None and user_input > max_value:
-                    raise ValueError(f"Value must be at most {max_value}")
-            elif input_type == float:
-                user_input = float(user_input)
+    print(f"\n{title}:")
+    for option in options:
+        print(f"{option['code']}. {option.get('name', option.get('description'))}")
 
