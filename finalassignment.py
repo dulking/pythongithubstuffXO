@@ -72,3 +72,22 @@ def display_options(options, title):
     for option in options:
         print(f"{option['code']}. {option.get('name', option.get('description'))}")
 
+def get_valid_choice(options, prompt):
+    """
+    Get and validate user choice from available options
+    
+    Args:
+        options (list): Available options
+        prompt (str): Input prompt to display
+    
+    Returns:
+        str: Validated choice code
+    """
+    valid_codes = [option["code"] for option in options]
+    
+    while True:
+        choice = input(prompt).strip()
+        if choice in valid_codes:
+            return choice
+        print(f"Invalid choice. Please enter one of: {', '.join(valid_codes)}")
+
