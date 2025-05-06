@@ -149,6 +149,11 @@ def register_camper():
     camp_choice = get_valid_choice(CAMPS, "Select camp (1-3): ")
     selected_camp = next(camp for camp in CAMPS if camp["code"] == camp_choice)
     
+# Select meal plan
+    display_options(MEAL_PLANS, "Meal Plan Options")
+    meal_choice = get_valid_choice(MEAL_PLANS, "Select meal plan (1-3): ")
+    selected_meal = next(meal for meal in MEAL_PLANS if meal["code"] == meal_choice)
+    
 
  
 
