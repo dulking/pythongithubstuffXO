@@ -126,5 +126,10 @@ def calculate_total_cost(camp, meal_plan, needs_transport):
     meal_cost = meal_plan["daily_cost"] * camp["duration"]
     transport_cost = TRANSPORT_COST if needs_transport else 0
     return base_cost + meal_cost + transport_cost
+def register_camper():
+    """Register a new camper and return registration details"""
+    print("\n--- New Registration ---")
+    
+ 
 
     
