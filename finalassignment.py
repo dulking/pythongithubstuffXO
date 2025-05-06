@@ -158,7 +158,20 @@ def register_camper():
     needs_transport = get_yes_no("Do you need transportation to camp? (yes/no): ")
   # Calculate total cost
     total_cost = calculate_total_cost(selected_camp, selected_meal, needs_transport)
-    
+ # Create registration record
+    registration = {
+        "name": camper_name,
+        "age": camper_age,
+        "camp": selected_camp["name"],
+        "duration": selected_camp["duration"],
+        "difficulty": selected_camp["difficulty"],
+        "meal_plan": selected_meal["description"],
+        "transportation": "Yes" if needs_transport else "No",
+        "total_cost": total_cost,
+        "confirmed": False
+    }
+  
+
 
  
 
