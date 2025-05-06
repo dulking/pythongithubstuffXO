@@ -91,3 +91,20 @@ def get_valid_choice(options, prompt):
             return choice
         print(f"Invalid choice. Please enter one of: {', '.join(valid_codes)}")
 
+def get_yes_no(prompt):
+    """
+    Get yes/no input from user
+    
+    Args:
+        prompt (str): Question to ask user
+    
+    Returns:
+        bool: True for yes, False for no
+    """
+    while True:
+        response = input(prompt).strip().lower()
+        if response in ["yes", "y"]:
+            return True
+        elif response in ["no", "n"]:
+            return False
+        print("Please answer 'yes' or 'no'.")
