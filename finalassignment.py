@@ -154,6 +154,8 @@ def register_camper():
     meal_choice = get_valid_choice(MEAL_PLANS, "Select meal plan (1-3): ")
     selected_meal = next(meal for meal in MEAL_PLANS if meal["code"] == meal_choice)
     
+ # Transportation option
+    needs_transport = get_yes_no("Do you need transportation to camp? (yes/no): ")
 
  
 
