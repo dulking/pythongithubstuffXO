@@ -91,6 +91,7 @@ def get_valid_choice(options, prompt):
             return choice
         print(f"Invalid choice. Please enter one of: {', '.join(valid_codes)}")
 
+
 def get_yes_no(prompt):
     """
     Get yes/no input from user
@@ -108,3 +109,22 @@ def get_yes_no(prompt):
         elif response in ["no", "n"]:
             return False
         print("Please answer 'yes' or 'no'.")
+
+def calculate_total_cost(camp, meal_plan, needs_transport):
+    """
+    Calculate total cost for registration
+    
+    Args:
+        camp (dict): Selected camp details
+        meal_plan (dict): Selected meal plan
+        needs_transport (bool): Whether transport is needed
+    
+    Returns:
+        int: Total calculated cost
+    """
+    base_cost = camp["base_cost"]
+    meal_cost = meal_plan["daily_cost"] * camp["duration"]
+    transport_cost = TRANSPORT_COST if needs_transport else 0
+    return base_cost + meal_cost + transport_cost
+
+    
