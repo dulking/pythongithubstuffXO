@@ -129,7 +129,27 @@ def calculate_total_cost(camp, meal_plan, needs_transport):
 def register_camper():
     """Register a new camper and return registration details"""
     print("\n--- New Registration ---")
+   # Get camper information
+    while True:
+        camper_name = input("Enter camper's name: ").strip()
+        if camper_name:
+            break
+        print("Name cannot be empty. Please try again.")
     
+    while True:
+        try:
+            camper_age = int(input("Enter camper's age (5-17): ").strip())
+            if 5 <= camper_age <= 17:
+                break
+            print("Age must be between 5 and 17.")
+        except ValueError:
+            print("Please enter a valid number for age.")
+ # Select camp
+    display_options(CAMPS, "Available Camps")
+    camp_choice = get_valid_choice(CAMPS, "Select camp (1-3): ")
+    selected_camp = next(camp for camp in CAMPS if camp["code"] == camp_choice)
+    
+
  
 
     
