@@ -156,6 +156,9 @@ def register_camper():
     
  # Transportation option
     needs_transport = get_yes_no("Do you need transportation to camp? (yes/no): ")
+  # Calculate total cost
+    total_cost = calculate_total_cost(selected_camp, selected_meal, needs_transport)
+    
 
  
 
