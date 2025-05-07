@@ -196,7 +196,29 @@ def main():
         registration = register_camper()
         if registration and registration["confirmed"]:
             all_registrations.append(registration)
-        
+       
+        # Ask if you want to register another camper
+        if not get_yes_no("\nRegister another camper? (yes/no): "):
+            break
+     
+    # Display all confirmed registrations
+    if all_registrations:
+        print("\n--- All Confirmed Registrations ---")
+        for i, reg in enumerate(all_registrations, 1):
+            print(f"\nRegistration #{i}:")
+            for key, value in reg.items():
+                if key != "confirmed":
+                    print(f"{key.replace('_', ' ').title()}: {value}")
+    else:
+        print("\nNo registrations were confirmed.")
+    
+    print("\nThank you for using the registration system!")
+
+if __name__ == "__main__":
+    main()
+    
+
+    
 
 
 
