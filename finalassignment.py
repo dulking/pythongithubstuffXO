@@ -158,7 +158,7 @@ def register_camper():
     needs_transport = get_yes_no("Do you need transportation to camp? (yes/no): ")
   # Calculate total cost
     total_cost = calculate_total_cost(selected_camp, selected_meal, needs_transport)
- # Create registration record
+  # Create registration record
     registration = {
         "name": camper_name,
         "age": camper_age,
@@ -170,7 +170,34 @@ def register_camper():
         "total_cost": total_cost,
         "confirmed": False
     }
-  
+   # Display summary
+    print("\n--- Registration Summary ---")
+    for key, value in registration.items():
+        if key != "confirmed":
+            print(f"{key.replace('_', ' ').title()}: {value}")
+    
+    # Confirm registration
+    if get_yes_no("\nConfirm registration? (yes/no): "):
+        registration["confirmed"] = True
+        print("\nRegistration confirmed! Thank you.")
+        return registration
+    
+    print("\nRegistration cancelled.")
+    return None
+
+def main():
+    """Main program function"""
+    print("Welcome to Tane's School Holiday Camp Registration!")
+    print("--------------------------------------------------")
+    
+    # Main program loop
+    while True:
+        # Register new camper
+        registration = register_camper()
+        if registration and registration["confirmed"]:
+            all_registrations.append(registration)
+        
+
 
 
  
