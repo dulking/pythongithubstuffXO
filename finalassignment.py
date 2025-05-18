@@ -91,7 +91,6 @@ def get_valid_choice(options, prompt):
             return choice
         print(f"Invalid choice. Please enter one of: {', '.join(valid_codes)}")
 
-
 def get_yes_no(prompt):
     """
     Get yes/no input from user
@@ -126,10 +125,12 @@ def calculate_total_cost(camp, meal_plan, needs_transport):
     meal_cost = meal_plan["daily_cost"] * camp["duration"]
     transport_cost = TRANSPORT_COST if needs_transport else 0
     return base_cost + meal_cost + transport_cost
+
 def register_camper():
     """Register a new camper and return registration details"""
     print("\n--- New Registration ---")
-   # Get camper information
+    
+    # Get camper information
     while True:
         camper_name = input("Enter camper's name: ").strip()
         if camper_name:
@@ -140,25 +141,34 @@ def register_camper():
         try:
             camper_age = int(input("Enter camper's age (5-17): ").strip())
             if 5 <= camper_age <= 17:
+                # NEW CODE ADDED HERE FOR CAMP LEADER MESSAGE
+                if camper_age == 16:
+                    print("\nGreat news! Since you're 16, you have the opportunity to become a camp leader!")
+                elif camper_age < 16:
+                    print("\nNote: Camp leader positions are only available for 16-year-olds.")
+                # END OF NEW CODE
                 break
             print("Age must be between 5 and 17.")
         except ValueError:
             print("Please enter a valid number for age.")
- # Select camp
+    
+    # Select camp
     display_options(CAMPS, "Available Camps")
     camp_choice = get_valid_choice(CAMPS, "Select camp (1-3): ")
     selected_camp = next(camp for camp in CAMPS if camp["code"] == camp_choice)
     
-# Select meal plan
+    # Select meal plan
     display_options(MEAL_PLANS, "Meal Plan Options")
     meal_choice = get_valid_choice(MEAL_PLANS, "Select meal plan (1-3): ")
     selected_meal = next(meal for meal in MEAL_PLANS if meal["code"] == meal_choice)
     
- # Transportation option
+    # Transportation option
     needs_transport = get_yes_no("Do you need transportation to camp? (yes/no): ")
-  # Calculate total cost
+    
+    # Calculate total cost
     total_cost = calculate_total_cost(selected_camp, selected_meal, needs_transport)
-  # Create registration record
+    
+    # Create registration record
     registration = {
         "name": camper_name,
         "age": camper_age,
@@ -170,7 +180,8 @@ def register_camper():
         "total_cost": total_cost,
         "confirmed": False
     }
-   # Display summary
+    
+    # Display summary
     print("\n--- Registration Summary ---")
     for key, value in registration.items():
         if key != "confirmed":
@@ -196,11 +207,11 @@ def main():
         registration = register_camper()
         if registration and registration["confirmed"]:
             all_registrations.append(registration)
-       
-        # Ask if you want to register another camper
+        
+        # Ask to register another camper
         if not get_yes_no("\nRegister another camper? (yes/no): "):
             break
-     
+    
     # Display all confirmed registrations
     if all_registrations:
         print("\n--- All Confirmed Registrations ---")
@@ -216,8 +227,6 @@ def main():
 
 if __name__ == "__main__":
     main()
-    
-
     
 
 
