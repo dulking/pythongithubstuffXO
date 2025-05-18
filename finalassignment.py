@@ -141,12 +141,12 @@ def register_camper():
         try:
             camper_age = int(input("Enter camper's age (5-17): ").strip())
             if 5 <= camper_age <= 17:
-                # NEW CODE ADDED HERE FOR CAMP LEADER MESSAGE
+           
                 if camper_age == 16:
                     print("\nGreat news! Since you're 16, you have the opportunity to become a camp leader!")
                 elif camper_age < 16:
                     print("\nNote: Camp leader positions are only available for 16-year-olds.")
-                # END OF NEW CODE
+              
                 break
             print("Age must be between 5 and 17.")
         except ValueError:
