@@ -134,12 +134,21 @@ def register_camper():
     while True:
         camper_name = input("Enter camper's name: ").strip()
         if camper_name:
+          
+            if camper_name.isdigit():
+                print("Invalid input! You can't just enter numbers. Please enter a valid name.")
+                continue
+           
             break
         print("Name cannot be empty. Please try again.")
     
+    
     while True:
         try:
-            camper_age = int(input("Enter camper's age (5-17): ").strip())
+            camper_age = int(input(f"{camper_name}, how old are you? (5-17): ").strip())
+            if camper_age < 0:
+                print("That's not a valid age. ")
+                continue
             if 5 <= camper_age <= 17:
            
                 if camper_age == 16:
@@ -151,7 +160,6 @@ def register_camper():
             print("Age must be between 5 and 17.")
         except ValueError:
             print("Please enter a valid number for age.")
-    
     # Select camp
     display_options(CAMPS, "Available Camps")
     camp_choice = get_valid_choice(CAMPS, "Select camp (1-3): ")
